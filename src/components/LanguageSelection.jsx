@@ -15,7 +15,7 @@ export default function LanguageSelection() {
       style={{
         backgroundImage: `
           linear-gradient(rgba(0,0,0,.4), rgba(0,0,0,.6)),
-          url('/images/bg-language.jpg')
+          url('/images/bg_4.jpg')
         `
       }}
     >
