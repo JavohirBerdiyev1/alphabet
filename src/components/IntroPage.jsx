@@ -7,7 +7,7 @@ export default function IntroPage() {
       style={{
         backgroundImage: `
           linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.6)),
-          url(https://img.freepik.com/free-vector/realistic-colorful-rainbow-concept_52683-35882.jpg?t=st=1748095065~exp=1748098665~hmac=c4e8d51f0a2e287199b786fcc15b50f0b99a7fdee39e84c7d9c8be510b0a2819&w=1380)
+          url("/images/bg_3.jpg")
         `
       }}
     >

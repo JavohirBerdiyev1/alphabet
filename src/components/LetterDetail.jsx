@@ -37,7 +37,7 @@ export default function LetterDetail() {
     <div
       className="min-h-screen flex items-center justify-center p-4 bg-cover bg-center"
       // style={{ backgroundImage: 'url("/images/Apples-184940975-770x533-1_jpg.webp")' }}
-      style={{ backgroundImage: 'url("https://img.freepik.com/free-photo/space-rocket-textured-background-blue-plasticine-clay-craft-kids_53876-126168.jpg?t=st=1748094600~exp=1748098200~hmac=9aeb6a77b6ad0c4e838b93ee6270a375b30a50a31d7089246351c01782ee21bf&w=1380")' }}
+      style={{ backgroundImage: 'url("/images/bg_1.jpg")' }}
     >
       <div className="bg-white bg-opacity-80 rounded-2xl shadow-2xl p-6 max-w-lg w-full">
         {/* HEADER */}
