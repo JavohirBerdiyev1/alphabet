@@ -28,10 +28,6 @@ export default function LetterDetail() {
     }
   };
 
-  // useEffect(() => () => {
-  //   audioRef.current?.pause();
-  //   audioRef.current = null;
-  // }, [lang, letter]);
 
   return (
     <div

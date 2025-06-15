@@ -1,19 +1,37 @@
-import { Link, useParams, useNavigate } from 'react-router-dom';
-import { getImageSrc }       from '../utils/getImageSrc';
+import { useEffect } from 'react';
+import { useParams, useNavigate, Link } from 'react-router-dom';
+import { getImageSrc } from '../utils/getImageSrc';
 import alphabetData from './data/alphabetData';
 
 export default function AlphabetDisplay() {
-  const { lang } = useParams();        // URL dan tilni olamiz
+  const { lang } = useParams();
   const navigate = useNavigate();
 
   const letters = Object.entries(alphabetData[lang] || {}).map(
     ([letter, info]) => ({ letter, ...info })
   );
 
+  useEffect(() => {
+    const handleKeyPress = (e) => {
+      const pressedKey = e.key.toUpperCase();
+
+      // Faqat mavjud harflarni tekshirish
+      const isAvailable = letters.some((item) => item.letter.toUpperCase() === pressedKey);
+      if (isAvailable) {
+        navigate(`/${lang}/${encodeURIComponent(pressedKey)}`);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyPress);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyPress);
+    };
+  }, [lang, navigate, letters]);
+
   return (
     <div className="min-h-screen bg-blue-500 p-4">
       <div className="container mx-auto">
-        {/* HEADER */}
         <div className="flex justify-between items-center mb-6">
           <button
             onClick={() => navigate('/lang')}
@@ -27,7 +45,6 @@ export default function AlphabetDisplay() {
           <div className="w-16" />
         </div>
 
-        {/* LETTERS */}
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
           {letters.map((item) => (
             <Link
