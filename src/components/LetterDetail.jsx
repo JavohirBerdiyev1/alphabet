@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef } from 'react';
 import { useParams, useNavigate }      from 'react-router-dom';
 import { getImageSrc }                 from '../utils/getImageSrc';
 import alphabetData from './data/alphabetData';
@@ -27,8 +27,7 @@ export default function LetterDetail() {
       setIsPlaying(true);
     }
   };
-
-
+  
   return (
     <div
       className="min-h-screen flex items-center justify-center p-4 bg-cover bg-center"
@@ -46,8 +45,6 @@ export default function LetterDetail() {
           </button>
           <h1 className="text-3xl font-bold text-blue-600">{letter}</h1>
         </div>
-
-        {/* CONTENT */}
         <div className="flex flex-col items-center space-y-6">
           <img
             src={getImageSrc(data.image, lang)}

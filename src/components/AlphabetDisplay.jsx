@@ -60,8 +60,19 @@ export default function AlphabetDisplay() {
               </div>
             </Link>
           ))}
+
+                {/* === Testni boshlash tugmasi === */}
+      
         </div>
+        <button
+        onClick={() => navigate(`/${lang}/test`)}
+        className="mt-6 center m-auto self-center bg-green-500 hover:bg-green-600 text-white font-semibold
+                   px-6 py-3 rounded-xl shadow transition"
+      >
+        Testni boshlash
+      </button>
       </div>
+    
     </div>
   );
 }

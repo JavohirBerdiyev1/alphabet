@@ -9,6 +9,10 @@ const languages = [
 export default function LanguageSelection() {
   const navigate = useNavigate();
 
+  const handleContact = () => {
+    window.open('https://t.me/Zarish_0305', '_blank', 'noopener,noreferrer');
+  };
+
   return (
     <div
       className="flex flex-col items-center justify-center min-h-screen bg-cover bg-center p-4"
@@ -20,14 +24,6 @@ export default function LanguageSelection() {
       }}
     >
       <div className="relative bg-white bg-opacity-90 rounded-xl shadow-xl p-8 max-w-md w-full">
-        {/* Orqaga tugma */}
-        {/* <button
-          onClick={() => navigate(-1)}
-          className="absolute -top-4 -left-4 bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center shadow-lg hover:bg-blue-700"
-        >
-          ←
-        </button> */}
-
         <h1 className="text-3xl font-bold text-center mb-8 text-blue-700">
           Tilni tanlang
         </h1>
@@ -37,7 +33,7 @@ export default function LanguageSelection() {
             <Link
               key={lang.id}
               to={`/${lang.id}`}
-              className="flex items-center justify-between bg-white bg-opacity-80 hover:bg-opacity-100 transition p-4 rounded-lg border border-blue-300 shadow"
+              className="flex items-center justify-between bg-white bg-opacity-100 transition p-4 rounded-lg border border-blue-300 shadow hover:shadow-lg hover:scale-105"
             >
               <span className="text-xl font-medium text-gray-800">
                 {lang.name}
@@ -47,6 +43,13 @@ export default function LanguageSelection() {
           ))}
         </div>
       </div>
+      <button
+          onClick={handleContact}
+          className="mb-6 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold py-2 rounded-lg shadow hover:from-blue-600 hover:to-blue-700 transition  w-[140px] absolute bottom-0 right-[30px]"
+        >
+          Aloqaga chiqish (Telegram)
+        </button>
+
     </div>
   );
 }
