@@ -67,6 +67,7 @@ export default function TestPage() {
 
   const [selectedIdx, setSelectedIdx] = useState(null);
   const [revealed, setRevealed] = useState(false);
+  const [toast, setToast] = useState(null);
 
   useEffect(() => {
     if (!hasHydrated) return;
@@ -120,12 +121,23 @@ export default function TestPage() {
     if (revealed) return;
     setSelectedIdx(i);
     setRevealed(true);
+    setToast({
+      text: opt.correct
+        ? lang === "uz"
+          ? "To‘g‘ri!"
+          : "Correct!"
+        : lang === "uz"
+        ? "Xato!"
+        : "Wrong!",
+      ok: opt.correct,
+    });
 
     setTimeout(() => {
       answer(opt.correct);
       setSelectedIdx(null);
       setRevealed(false);
-    }, 1000);
+      setToast(null); // toastni yopish
+    }, 1500);
   };
 
   const btnClass = (o, i) => {
@@ -137,6 +149,15 @@ export default function TestPage() {
 
   return (
     <div className="min-h-screen bg-blue-500 px-4 py-6">
+      {toast && (
+        <div
+          className={`fixed top-4 right-4 z-50 px-4 py-2 rounded-xl shadow-lg
+                   text-white transition-all duration-300 animate-slide-in
+                   ${toast.ok ? "bg-green-500" : "bg-red-500"}`}
+        >
+          {toast.text}
+        </div>
+      )}
       <div className="max-w-7xl mx-auto flex flex-col items-center">
         <p className="text-lg font-semibold text-white mb-3">{seq}</p>
 
